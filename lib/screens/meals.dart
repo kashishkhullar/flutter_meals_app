@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meals_app/dummy_data.dart';
+import 'package:flutter_meals_app/widgets/meal.dart';
 
 class Meals extends StatelessWidget {
   // its a good practise to add route names like this and use it in the routes list in main
@@ -22,7 +23,12 @@ class Meals extends StatelessWidget {
       body: ListView.builder(
         itemCount: categoryMeals.length,
         itemBuilder: (context, index) {
-          return Text(categoryMeals[index].title);
+          return Meal(
+              affordability: categoryMeals[index].affordability,
+              complexity: categoryMeals[index].complexity,
+              duration: categoryMeals[index].duration,
+              imageUrl: categoryMeals[index].imageUrl,
+              title: categoryMeals[index].title);
         },
       ),
     );
