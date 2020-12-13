@@ -17,6 +17,34 @@ class Meal extends StatelessWidget {
 
   void selectMeal() {}
 
+  String get complexityText {
+    switch (complexity) {
+      case Complexity.Simple:
+        return "Simple";
+
+      case Complexity.Challenging:
+        return "Challenging";
+
+      case Complexity.Hard:
+        return "Hard";
+    }
+    return "Unknown";
+  }
+
+  String get affordabilityText {
+    switch (affordability) {
+      case Affordability.Affordable:
+        return "Affordable";
+
+      case Affordability.Luxurious:
+        return "Luxurious";
+
+      case Affordability.Pricey:
+        return "Pricey";
+    }
+    return "Unknown";
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -42,8 +70,58 @@ class Meal extends StatelessWidget {
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
-                )
+                ),
+                Positioned(
+                  left: 0,
+                  bottom: 20,
+                  child: Container(
+                    width: 350,
+                    color: Colors.black54,
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                    child: Text(
+                      title,
+                      style: TextStyle(fontSize: 26, color: Colors.white),
+                      softWrap: true,
+                      overflow: TextOverflow.fade,
+                    ),
+                  ),
+                ),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.schedule),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text("$duration min")
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.schedule),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(complexityText)
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.attach_money),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(affordabilityText)
+                    ],
+                  ),
+                ],
+              ),
             )
           ],
         ),
