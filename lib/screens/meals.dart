@@ -24,6 +24,7 @@ class Meals extends StatelessWidget {
         itemCount: categoryMeals.length,
         itemBuilder: (context, index) {
           return Meal(
+              id: categoryMeals[index].id,
               affordability: categoryMeals[index].affordability,
               complexity: categoryMeals[index].complexity,
               duration: categoryMeals[index].duration,
