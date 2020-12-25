@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meals_app/screens/categories.dart';
+import 'package:flutter_meals_app/screens/filters.dart';
 import 'package:flutter_meals_app/screens/meal_details.dart';
 import 'package:flutter_meals_app/screens/meals.dart';
+import 'package:flutter_meals_app/screens/tabs.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,9 +37,10 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         // "/" is by default home so home property is not required if you are adding here
-        "/": (context) => Categories(),
+        "/": (context) => TabsScreen(),
         Meals.routeName: (context) => Meals(),
-        MealDetails.routeName: (context) => MealDetails()
+        MealDetails.routeName: (context) => MealDetails(),
+        FilterScreen.routeName: (context) => FilterScreen()
       },
     );
   }
